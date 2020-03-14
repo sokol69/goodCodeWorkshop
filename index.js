@@ -6,7 +6,9 @@ const readlineInstance = readline.createInterface({
 });
 
 readlineInstance.question("Please, enter degrees Celsius: ", answer => {
-  const celsiusValue = Number(answer);
+  const answerParts = answer.split(",");
+  const restoredAnswer = answerParts.join(".");
+  const celsiusValue = Number(restoredAnswer);
 
   if (celsiusValue || celsiusValue === 0) {
     const vahrenheitValue = celsiusValue * 1.8 + 32;
